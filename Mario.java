@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 
 public class Mario {
 
-	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+	public static void main(String[] args) {
 
 		int pyramidHeight = -1;
 		char printChoice = 'a';
@@ -46,12 +46,19 @@ public class Mario {
 		} else {
 			System.out.println("What would you like to name the text file?");
 			String filename = console.next();
-			PrintWriter writer = new PrintWriter(filename + ".txt", "UTF-8");
-			
-			for(int i = 0; i < stairs.length; i++) {
-				writer.println(stairs[i]);
+			PrintWriter writer = null;
+			try {
+				writer = new PrintWriter(filename + ".txt");
+				for(int i = 0; i < stairs.length; i++) {
+					writer.println(stairs[i]);
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("There was a problem finding the file");
+				e.printStackTrace();
+			} finally {
+				writer.close();
 			}
-			writer.close();
 		}
 	}
 
