@@ -5,17 +5,18 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import pset1.Printer;
+import pset1.Pyramid;
 
 public class FilePrinter implements Printer {
 
-	public String[] pyramid;
-	public PrintWriter writer;
-	public Scanner console;
+	private PrintWriter writer;
+	private Scanner console;
+	private Pyramid pyramid;
 
-	public FilePrinter(String[] pyramid, Scanner console) {
+	public FilePrinter(Pyramid pyramid) {
 		this.pyramid = pyramid;
 		this.writer = null;
-		this.console = console;
+		this.console = new Scanner(System.in);
 	}
 
 	public void print() {
@@ -23,20 +24,12 @@ public class FilePrinter implements Printer {
 		String filename = console.next();
 		try {
 			this.writer = new PrintWriter(filename + ".txt");
-			for(int i = 0; i < pyramid.length; i++) {
-				this.writer.println(pyramid[i]);
-			}
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("Error in finding file");
-		} finally {
-			writer.close();
 		}
-		
-//		System.out.println("Exited Try Catch statement");
-//		for(int i = 0; i < this.pyramid.length; i++) {
-//			this.writer.println(pyramid[i]);
-//		}
-//		System.out.println("Exited for loop");
+		this.writer.print(this.pyramid.toString());
+		writer.close();
 	}
 
 }
