@@ -3,9 +3,6 @@ package pset1;
 import java.util.HashMap;
 import java.util.Map;
 
-import pset1.printers.ConsolePrinter;
-import pset1.printers.FilePrinter;
-
 public class Pyramid {
 	
 	private char printChoice;
@@ -15,8 +12,8 @@ public class Pyramid {
 	public Pyramid(int height, char printChoice) {
 		this.printChoice = printChoice;
 		this.pyramid = new String[height];
-		printerMap.put('c', new ConsolePrinter(this)); 
-		printerMap.put('t', new FilePrinter(this));
+		printerMap.put('c', PrinterFactory.consolePrinter(this)); 
+		printerMap.put('t', PrinterFactory.filePrinter(this));
 	}
 	
 	public void createPyramid() {
