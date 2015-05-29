@@ -1,8 +1,10 @@
-package pset1;
+package pset1.printers;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import pset1.Printer;
 
 public class FilePrinter implements Printer {
 

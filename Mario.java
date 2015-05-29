@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import pset1.printers.*;
+
 public class Mario {
 
 	public static void main(String[] args) {

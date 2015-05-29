@@ -1,4 +1,6 @@
-package pset1;
+package pset1.printers;
+
+import pset1.Printer;
 
 
 public class ConsolePrinter implements Printer {
